@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integración con API Externa</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    header {
+      text-align: left;
+      margin: 20px;
+    }
+    #user-list-component {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+    }
+    #user-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .user-item {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header>
+    <h1>Ejercicio 4</h1>
+    <p>Ejercicio 4: Integración con API Externa</p>
+  </header>
+
+
+  <div id="user-list-component">
+    <h2>Lista de Autos de Fórmula 1</h2>
+    <ul id="user-list"></ul>
+  </div>
+
+  <script>
+   
+    const userListElement = document.getElementById('user-list');
+
+    fetch('https://ergast.com/api/f1/2021/constructors.json')
+      .then(response => response.json())
+      .then(data => {
+        const constructors = data.MRData.ConstructorTable.Constructors;
+        constructors.forEach(constructor => {
+          const listItem = document.createElement('li');
+          listItem.className = 'user-item';
+          listItem.textContent = `Equipo: ${constructor.name} - Nacionalidad: ${constructor.nationality}`;
+          userListElement.appendChild(listItem);
+        });
+      })
+      .catch(error => console.error('Error al obtener datos de la API:', error));
+  </script>
+
+</body>
+</html>
+
+

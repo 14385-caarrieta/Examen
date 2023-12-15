@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creación de Componente - Saludo</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    saludo-component {
+      font-size: 24px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+
+  <saludo-component></saludo-component>
+
+  <script>
+    
+    class SaludoComponent extends HTMLElement {
+      constructor() {
+        super();
+
+        
+        const shadow = this.attachShadow({ mode: 'open' });
+
+        
+        const parrafo = document.createElement('p');
+        parrafo.textContent = '¡Hola, Mundo!';
+
+        
+        parrafo.style.margin = '0';
+
+        
+        shadow.appendChild(parrafo);
+      }
+    }
+
+    // Registrar el componente personalizado
+    customElements.define('saludo-component', SaludoComponent);
+  </script>
+
+</body>
+</html>
+

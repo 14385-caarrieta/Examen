@@ -1,0 +1,85 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Estado - Contador</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    header {
+      text-align: left;
+      margin: 20px;
+    }
+    #contador-component {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+    }
+    #contador {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header>
+    <h1>Ejercicio 5</h1>
+    <p>Ejercicio 5: Gestión de Estado - Contador</p>
+  </header>
+
+  
+  <div id="contador-component">
+    <h2>Contador</h2>
+    <div id="contador">0</div>
+    <button onclick="incrementarContador()">Incrementar</button>
+    <button onclick="disminuirContador()">Disminuir</button>
+  </div>
+
+  <script>
+    // Código JavaScript aquí
+    let contador = 0;
+
+    function actualizarContador() {
+      document.getElementById('contador').textContent = contador;
+    }
+
+    function incrementarContador() {
+      contador++;
+      actualizarContador();
+    }
+
+    function disminuirContador() {
+      contador--;
+      actualizarContador();
+    }
+  </script>
+
+</body>
+</html>
